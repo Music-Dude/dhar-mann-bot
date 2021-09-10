@@ -25,8 +25,20 @@ client.on('messageCreate', async msg => {
         const args = words.slice(2);
         const command = client.commands.get(words[1]) || client.commands.find(cmd => cmd.aliases && cmd.aliases.includes(words[1]));
 
-        if (command)
-            command(client, msg, args);
+        if (command) {
+            try {
+                command(client, msg, args);
+            } catch (err) {
+                msg.reply({ embeds: [
+                    {
+                        title: 'There was an error running that command!',
+                        description: err.toString(),
+                        color: 0xff0000,
+                        thumbnail: { url: 'https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/120/twitter/282/cross-mark_274c.png' }
+                    }
+                ]});
+            }
+        }
     }
     if (msg.content.toLowerCase().includes('dhar man')) {
         console.log(`Responded to ${msg.author.tag}`);

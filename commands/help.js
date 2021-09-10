@@ -12,7 +12,6 @@ function help(client, msg, args) {
             embed.fields.push({ name: command.name, value: `*${command.description}*` });
     }
 
-
     msg.reply({ embeds: [embed ]});
 }
 
