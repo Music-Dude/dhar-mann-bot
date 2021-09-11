@@ -1,4 +1,4 @@
-function help(client, msg, args) {
+function help(msg, args) {
     let embed = {
         title: 'Dhar Mann',
         fields: [],

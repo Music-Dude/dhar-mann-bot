@@ -7,6 +7,8 @@ const client = new Client({ intents: [Intents.FLAGS.GUILDS, Intents.FLAGS.GUILD_
 client.options.failIfNotExists = false;
 client.commands = new Collection();
 
+global.client = client;
+
 const commandFiles = fs.readdirSync('./commands').filter(file => file.endsWith('.js'));
 
 for (const file of commandFiles) {
@@ -28,7 +30,7 @@ client.on('messageCreate', async msg => {
 
         if (command) {
             try {
-                command(client, msg, args);
+                command(msg, args);
             } catch (err) {
                 msg.reply({ embeds: [
                     {

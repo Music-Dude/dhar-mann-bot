@@ -1,4 +1,4 @@
-function ping(client, msg, args) {
+function ping(msg, args) {
     msg.reply({ embeds: [
         {
             title: 'Bot ping',
