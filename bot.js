@@ -4,6 +4,7 @@ const { token, presence, prefix } = require('./config.json');
 const { people, actions, endings } = require('./words.json');
 
 const client = new Client({ intents: [Intents.FLAGS.GUILDS, Intents.FLAGS.GUILD_MESSAGES] });
+client.options.failIfNotExists = false;
 client.commands = new Collection();
 
 const commandFiles = fs.readdirSync('./commands').filter(file => file.endsWith('.js'));
@@ -40,6 +41,7 @@ client.on('messageCreate', async msg => {
             }
         }
     }
+
     if (msg.content.toLowerCase().includes('dhar man')) {
         console.log(`Responded to ${msg.author.tag}`);
         const title = `${people[Math.floor(Math.random() * people.length)]} ${actions[Math.floor(Math.random() * actions.length)]} ${people[Math.floor(Math.random() * people.length)]}, ${endings[Math.floor(Math.random() * endings.length)]}!`;
