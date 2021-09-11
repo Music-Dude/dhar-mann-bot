@@ -7,7 +7,12 @@ const client = new Client({ intents: [Intents.FLAGS.GUILDS, Intents.FLAGS.GUILD_
 client.options.failIfNotExists = false;
 client.commands = new Collection();
 
+function genTitle() {
+        return `${people[Math.floor(Math.random() * people.length)]} ${actions[Math.floor(Math.random() * actions.length)]} ${people[Math.floor(Math.random() * people.length)]}, ${endings[Math.floor(Math.random() * endings.length)]}!`;
+}
+
 global.client = client;
+global.genTitle = genTitle
 
 const commandFiles = fs.readdirSync('./commands').filter(file => file.endsWith('.js'));
 
@@ -46,8 +51,7 @@ client.on('messageCreate', async msg => {
 
     if (msg.content.toLowerCase().includes('dhar man')) {
         console.log(`Responded to ${msg.author.tag}`);
-        const title = `${people[Math.floor(Math.random() * people.length)]} ${actions[Math.floor(Math.random() * actions.length)]} ${people[Math.floor(Math.random() * people.length)]}, ${endings[Math.floor(Math.random() * endings.length)]}!`;
-        msg.reply(title);
+        msg.reply(genTitle());
     }
 });
 
