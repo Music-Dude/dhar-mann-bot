@@ -1,6 +1,6 @@
 /* globals client */
 
-function help(msg, args) {
+function help(msg) {
     let embed = {
         title: 'Dhar Mann',
         fields: [],

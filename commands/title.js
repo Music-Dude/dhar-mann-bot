@@ -1,6 +1,6 @@
 /* globals genTitle */
 
-function title(msg, args) {
+function title(msg) {
     let embed = {
         title: 'Dhar Mann Title',
         description: genTitle(),

@@ -1,6 +1,6 @@
 /* globals client */
 
-function ping(msg, args) {
+function ping(msg) {
     msg.reply({ embeds: [
         {
             title: 'Bot ping',

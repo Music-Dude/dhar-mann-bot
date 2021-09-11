@@ -1,6 +1,6 @@
 /* globals ytApiKey https */
 
-function thumbnail(msg, args) {
+function thumbnail(msg) {
     const options = {
         hostname: 'www.googleapis.com',
         port: 443,
