@@ -1,3 +1,5 @@
+/* globals client */
+
 function help(msg, args) {
     let embed = {
         title: 'Dhar Mann',

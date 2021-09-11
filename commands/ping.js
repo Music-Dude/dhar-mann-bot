@@ -1,3 +1,5 @@
+/* globals client */
+
 function ping(msg, args) {
     msg.reply({ embeds: [
         {

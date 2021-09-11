@@ -1,3 +1,5 @@
+/* globals client */
+
 function add(msg, args) {
     let embed = {
         title: 'Add Dhar Mann to your server',

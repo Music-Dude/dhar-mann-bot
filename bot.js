@@ -16,6 +16,7 @@ global.https = https;
 global.client = client;
 global.genTitle = genTitle;
 global.ytApiKey = ytApiKey;
+/* exported https client genTitle ytApiKey */
 
 const commandFiles = fs.readdirSync('./commands').filter(file => file.endsWith('.js'));
 
