@@ -46,6 +46,7 @@ client.on('messageCreate', async msg => {
                     }
                 ]});
             }
+            return;
         }
     }
 
