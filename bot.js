@@ -1,6 +1,7 @@
+const https = require('https');
 const fs = require('fs');
 const { Client, Intents, Collection } = require('discord.js');
-const { token, presence, prefix } = require('./config.json');
+const { token, presence, prefix, ytApiKey } = require('./config.json');
 const { people, actions, endings } = require('./words.json');
 
 const client = new Client({ intents: [Intents.FLAGS.GUILDS, Intents.FLAGS.GUILD_MESSAGES] });
@@ -8,11 +9,13 @@ client.options.failIfNotExists = false;
 client.commands = new Collection();
 
 function genTitle() {
-        return `${people[Math.floor(Math.random() * people.length)]} ${actions[Math.floor(Math.random() * actions.length)]} ${people[Math.floor(Math.random() * people.length)]}, ${endings[Math.floor(Math.random() * endings.length)]}!`;
+    return `${people[Math.floor(Math.random() * people.length)]} ${actions[Math.floor(Math.random() * actions.length)]} ${people[Math.floor(Math.random() * people.length)]}, ${endings[Math.floor(Math.random() * endings.length)]}!`;
 }
 
+global.https = https;
 global.client = client;
-global.genTitle = genTitle
+global.genTitle = genTitle;
+global.ytApiKey = ytApiKey;
 
 const commandFiles = fs.readdirSync('./commands').filter(file => file.endsWith('.js'));
 

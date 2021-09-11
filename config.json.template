@@ -1,5 +1,6 @@
 {
 	"token": "",
+    "ytApiKey": "",
 	"prefix": "dhar",
 	"presence": {
 		"activities": [
