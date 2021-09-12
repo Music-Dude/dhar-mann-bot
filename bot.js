@@ -33,7 +33,7 @@ client.on('ready', () => {
 client.on('messageCreate', async msg => {
     // Remove empty words
     const words = msg.content.split(' ').filter(x => x);
-    if(words[0] == prefix) {
+    if (words[0] && words[0].toLowerCase() == prefix) {
         const command = client.commands.get(words[1]) || client.commands.find(cmd => cmd.aliases && cmd.aliases.includes(words[1]));
 
         if (command) {
